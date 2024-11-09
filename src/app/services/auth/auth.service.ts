@@ -15,7 +15,11 @@ export class AuthService {
 	async login(email: string, password: string): Promise<any> {
 		const body = { email, password };
 		try {
-			const response = await axios.post(`${this.apiUrl}`, body);
+			const response = await axios.post(
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_NUTRICIONISTAS}`,
+				body,
+			);
+			console.log(response);
 			if (response.data.token) {
 				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
 			}
@@ -27,10 +31,12 @@ export class AuthService {
 	}
 
 	// Método para el registro
-	async register(email: string, password: string): Promise<any> {
-		const body = { email, password };
+	async registerNutricionista(form: any): Promise<any> {
 		try {
-			const response = await axios.post(`${this.apiUrl}/register`, body);
+			const response = await axios.post(
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_NUTRICIONISTAS}`,
+				form,
+			);
 			if (response.data.token) {
 				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
 			}

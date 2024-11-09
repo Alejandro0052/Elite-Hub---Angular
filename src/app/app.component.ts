@@ -1,19 +1,26 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, NavigationEnd } from '@angular/router';
 import { initFlowbite } from 'flowbite';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { FooterComponent } from './components/shared/footer/footer.component';
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
-  templateUrl: './app.component.html',
+	selector: 'app-root',
+	standalone: true,
+	imports: [RouterOutlet, HeaderComponent, FooterComponent],
+	templateUrl: './app.component.html',
 })
 export class AppComponent {
-  title = 'EliteHub';
+	title = 'EliteHub';
 
-  ngOnInit(): void {
-    initFlowbite();
-  }
+	constructor(private router: Router) {}
+
+	ngAfterViewInit(): void {
+		// Escuchar eventos de navegación y ejecutar initFlowbite en cada cambio de ruta
+		this.router.events.subscribe((event) => {
+			if (event instanceof NavigationEnd) {
+				initFlowbite();
+			}
+		});
+	}
 }
