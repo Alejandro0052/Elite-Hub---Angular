@@ -7,9 +7,9 @@
       <h2 class="text-center text-4xl font-bold text-white">Elite Hub</h2>
       <div class="pt-4">
         <p class="text-center text-white">Inicia sesión</p>
-        <form class="mx-auto max-w-md px-4" (ngSubmit)="login(formularioUser)">
+          <form #formularioUser="ngForm" class="mx-auto max-w-md px-4" (ngSubmit)="login(formularioUser)">
           <div class="mb-5">
-            <label for="email" class="mb-2 block text-sm font-medium text-white">Tu correo:</label>
+            <label for="email" class="mb-2 block text-sm font-medium text-white">Tu correo:</label>     
             <input type="email" id="email"
               class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-accent focus:ring-accent"
               placeholder="correo@elitehub.com" required />
