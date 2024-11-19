@@ -94,6 +94,7 @@ export class AuthService {
 			throw error;
 		}
 	}
+	
 
 	// Método para obtener el token
 	getToken(): string | null {

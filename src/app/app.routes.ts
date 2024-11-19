@@ -6,6 +6,8 @@ import { QuienesSomosComponent } from './components/quienes-somos/quienes-somos.
 import { PoliticasPrivacidadComponent } from './components/politicas-privacidad/politicas-privacidad.component';
 import { TerminosCondicionesComponent } from './components/terminos-condiciones/terminos-condiciones.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
+import { DeportistasComponent } from './components/deportistas/deportistas.component';
+
 
 export const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -15,5 +17,6 @@ export const routes: Routes = [
 	{ path: 'politicas_privacidad', component: PoliticasPrivacidadComponent },
 	{ path: 'terminos_condiciones', component: TerminosCondicionesComponent },
 	{ path: 'contactenos', component: ContactenosComponent },
+	{ path: 'deportistas', component: DeportistasComponent },	
 	{ path: '**', redirectTo: 'home' }, // This will catch any invalid routes and redirect to home page
 ];

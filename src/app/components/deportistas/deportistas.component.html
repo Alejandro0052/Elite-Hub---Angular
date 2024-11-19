@@ -1,0 +1,40 @@
+<div class="h-screen bg-gray-900 text-white">
+    <header class="flex justify-between items-center p-4 bg-gray-800">
+      <img src="logo.png" alt="Logo" class="h-12" />
+      <h1 class="text-2xl font-bold">DEPORTISTAS</h1>
+      <div class="flex items-center gap-4">
+        <button class="text-sm">Mi perfil</button>
+        <button class="text-sm">Log Out</button>
+      </div>
+    </header>
+  
+    <main class="px-6 py-4">
+      <div class="flex items-center mb-6">
+        <input
+          type="text"
+          placeholder="Buscar"
+          class="flex-1 px-4 py-2 rounded-l bg-gray-700 text-white focus:outline-none"
+        />
+        <button class="px-4 bg-gray-600 rounded-r">🔍</button>
+      </div>
+  
+      <div class="grid grid-cols-4 gap-4">
+        <div *ngFor="let deportista of deportistas" class="bg-gray-800 rounded-lg p-4">
+          <img [src]="deportista.imagen" alt="Deportista" class="w-full h-48 object-cover rounded-md" />
+          <h2 class="mt-2 font-bold">{{ deportista.nombre }}</h2>
+          <p>{{ deportista.deporte }}</p>
+        </div>
+      </div>
+    </main>
+  
+    <footer class="mt-auto bg-gray-800 p-4 text-center text-sm">
+      <div class="flex justify-center gap-8">
+        <a href="#" class="hover:underline">¿Quiénes Somos?</a>
+        <a href="#" class="hover:underline">Políticas de Tratamiento de Datos</a>
+        <a href="#" class="hover:underline">Términos y Condiciones</a>
+        <a href="#" class="hover:underline">Contáctenos</a>
+      </div>
+      <p class="mt-2">© COPYRIGHT 2024 ELITE GROUP FCECP. TODOS LOS DERECHOS RESERVADOS.</p>
+    </footer>
+  </div>
+  

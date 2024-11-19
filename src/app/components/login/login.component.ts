@@ -11,8 +11,8 @@ import { FormsModule } from '@angular/forms';
 export class LoginComponent {
   login(formularioUser: NgForm): void {
     if (formularioUser.valid) {
-      const { email, password } = formularioUser.value;
-      console.log('Formulario enviado:', { email, password });
+      const { username, password } = formularioUser.value;
+      console.log('Formulario enviado:', { username, password });
     } else {
       alert('Formulario inválido. Completa todos los campos.');
     }
