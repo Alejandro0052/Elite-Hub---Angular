@@ -25,6 +25,7 @@ export class PatrocinadoresComponent implements OnInit {
       (data: any) => {
         // Transformar los datos aquí para usar solo lo necesario
         this.patrocinadores = data.map((patrocinador: any) => ({
+          nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`,
           deportistas_interes: patrocinador.deportistas_interes,
         }));
       },

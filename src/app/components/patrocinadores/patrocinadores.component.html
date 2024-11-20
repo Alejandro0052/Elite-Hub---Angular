@@ -15,14 +15,16 @@
       
       </div>
   
+     
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        <div *ngFor="let patrocinador  of patrocinadores " class="deportista-card">
+        <div *ngFor="let patrocinador of patrocinadores" class="deportista-card">
           <img
-            [src]="patrocinadores || 'assets/default-placeholder.png'"
-    
+            [src]="patrocinador.imagen_de_perfil || 'assets/default-placeholder.png'"
+            alt="{{ patrocinador.nommbreCompleto }}"
             class="w-full h-48 object-cover rounded-md"
           />
-          <h2 class="mt-4 text-lg font-bold text-white">{{ patrocinador.deportistas_interes}}</h2>
+          <p class="text-gray-400 text-lg font-bold">{{ patrocinador.nombreCompleto }}</p>
+          <p class="text-gray-200 mt-2">{{ patrocinador.deportistas_interes }}</p>
         </div>
       </div>
     </main>
