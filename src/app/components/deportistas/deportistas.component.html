@@ -15,12 +15,16 @@
         <button class="px-4 bg-gray-600 rounded-r">🔍</button>
       </div>
   
-      <div class="grid grid-cols-4 gap-4">
-        <div *ngFor="let deportista of deportistas" class="bg-gray-800 rounded-lg p-4">
-          <img [src]="deportista.imagen_de_perfil" alt="Deportista" class="w-full h-48 object-cover rounded-md" />
-          <h2 class="mt-2 font-bold">{{ deportista.nombre }}</h2>
-          <p>{{ deportista.deporte }}</p>
-          <p>{{deportista.descripcion}}</p>      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+        <div *ngFor="let deportista of deportistas" class="deportista-card">
+          <img
+            [src]="deportista.imagen_de_perfil || 'assets/default-placeholder.png'"
+            alt="{{ deportista.nombre }}"
+            class="w-full h-48 object-cover rounded-md"
+          />
+          <h2 class="mt-4 text-lg font-bold text-white">{{ deportista.nombre }}</h2>
+          <p class="text-gree-400">{{ deportista.deporte }}</p>
+          <p class="text-gray-300 mt-2">{{ deportista.descripcion }}</p>
         </div>
       </div>
     </main>

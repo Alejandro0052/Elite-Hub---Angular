@@ -7,7 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     selector: 'app-deportistas',
     templateUrl: './deportistas.component.html',
-   // styleUrls: ['./deportistas.component.css'],
+    styleUrls: ['./deportistas.component.css'],
     imports: [CommonModule, HttpClientModule], 
   })
   

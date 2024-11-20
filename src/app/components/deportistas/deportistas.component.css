@@ -1,0 +1,26 @@
+/* deportistas.component.css */
+.deportista-card {
+    background: linear-gradient(145deg, #393951, #1e1e2f);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .deportista-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  .deportista-card img {
+    border-radius: 8px;
+  }
+  
+  .deportista-card h2 {
+    font-size: 1.25rem;
+    color: #ffffff;
+  }
+  
+  .deportista-card p {
+    color: #c0c0c0;
+    margin-top: 0.5rem;
+  }
+  
