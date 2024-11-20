@@ -1,7 +1,7 @@
 <div class="h-screen bg-gray-900 text-white">
     <header class="flex justify-between items-center p-4 bg-gray-800">
       <img class="h-12" />
-      <h1 class="text-2xl font-bold">DEPORTISTAS</h1>
+      <h1 class="text-2xl font-bold">PATROCINADORES</h1>
       <div class="flex items-center gap-4">
       </div>
     </header>
@@ -16,15 +16,13 @@
       </div>
   
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        <div *ngFor="let deportista of deportistas" class="deportista-card">
+        <div *ngFor="let patrocinador  of patrocinadores " class="deportista-card">
           <img
-            [src]="deportista.imagen_de_perfil || 'assets/default-placeholder.png'"
-            alt="{{ deportista.nommbreCompleto }}"
+            [src]="patrocinadores || 'assets/default-placeholder.png'"
+    
             class="w-full h-48 object-cover rounded-md"
           />
-          <p class="text-gray-400 text-lg font-bold">{{ deportista.nombreCompleto }}</p>
-          <p class="text-gree-300 text-lg font-bold">{{ deportista.deporte }}</p>
-          <p class="text-gray-200 mt-2">{{ deportista.descripcion }}</p>
+          <h2 class="mt-4 text-lg font-bold text-white">{{ patrocinador.deportistas_interes}}</h2>
         </div>
       </div>
     </main>
