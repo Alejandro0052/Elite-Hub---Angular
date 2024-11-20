@@ -18,5 +18,5 @@ export const routes: Routes = [
 	{ path: 'terminos_condiciones', component: TerminosCondicionesComponent },
 	{ path: 'contactenos', component: ContactenosComponent },
 	{ path: 'deportistas', component: DeportistasComponent },	
-	{ path: '**', redirectTo: 'home' }, // This will catch any invalid routes and redirect to home page
+	{ path: '**', redirectTo: 'home' }, 
 ];
