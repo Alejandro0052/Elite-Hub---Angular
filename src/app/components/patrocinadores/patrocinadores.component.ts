@@ -25,8 +25,10 @@ export class PatrocinadoresComponent implements OnInit {
     this.http.get('http://127.0.0.1:8000/api/patrocinadores/').subscribe(
       (data: any) => {
         this.patrocinadores = data.map((patrocinador: any) => ({
-          nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`,
+          imagen_de_perfil: `${patrocinador.usuario.imagen_de_perfil}`,
+          nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`  ,
           deportistas_interes: patrocinador.deportistas_interes,
+          descripcion:patrocinador.descripcion,
         }));
       },
       (error) => {
