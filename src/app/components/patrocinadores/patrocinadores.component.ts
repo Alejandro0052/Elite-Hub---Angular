@@ -24,11 +24,12 @@ export class PatrocinadoresComponent implements OnInit {
   obtenerPatrocinadores(): void {
     this.http.get('http://127.0.0.1:8000/api/patrocinadores/').subscribe(
       (data: any) => {
+        console.log('Datos recibidos del backend:', data);
         this.patrocinadores = data.map((patrocinador: any) => ({
-          imagen_de_perfil: `${patrocinador.usuario.imagen_de_perfil}`,
-          nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`  ,
+          imagen_de_perfil: `http://127.0.0.1:8000${patrocinador.imagen_de_perfil}`, // Construcción completa de la URL
+          nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`,
           deportistas_interes: patrocinador.deportistas_interes,
-          descripcion:patrocinador.descripcion,
+          descripcion: patrocinador.descripcion,
         }));
       },
       (error) => {
