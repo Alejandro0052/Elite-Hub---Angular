@@ -1,30 +1,32 @@
 <div class="h-screen bg-gray-900 text-white">
+    <!-- Encabezado -->
     <header class="flex justify-between items-center p-4 bg-gray-800">
       <img class="h-12" />
-      <h1 class="text-2xl font-bold">PATROCINADORES</h1>
-      <div class="flex items-center gap-4">
-      </div>
+      <h1 class="text-2xl font-bold text-center flex-1">PATROCINADORES</h1>
     </header>
-    <main class="px-6 py-4">
-      <div class="flex items-center mb-2">
-        <input
-        type="text"
-        placeholder="Buscar"
-        class="flex-1 px-4 py-2 rounded-4 bg-gray-700 text-white focus:outline-none"
-        />
-      
-      </div>
   
-     
+    <!-- Contenido principal -->
+    <main class="px-6 py-4">
+      <div class="flex items-center mb-2 gap-2">
+        <input
+          type="text"
+          placeholder="Buscar"
+          class="flex-1 max-w-md px-4 py-2 rounded-md bg-gray-700 text-white focus:outline-none"
+        />
+        <button class="px-4 py-2 bg-gray-800 rounded-md text-white hover:bg-gray-700">
+            Filtrar
+          </button>
+      </div>
+  <!-- Contenido principal alt="{{ patrocinador.nombreCompleto }}"  en caso de que se quiera retornar a lo que se tenia -->
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
-        <div *ngFor="let patrocinador of patrocinadores" class="deportista-card">
+        <div *ngFor="let patrocinador of patrocinadores" class="card">
           <img
             [src]="patrocinador.imagen_de_perfil || 'assets/default-placeholder.png'"
-            alt="{{ patrocinador.nommbreCompleto }}"
             class="w-full h-48 object-cover rounded-md"
           />
           <p class="text-gray-400 text-lg font-bold">{{ patrocinador.nombreCompleto }}</p>
-          <p class="text-gray-200 mt-2">{{ patrocinador.deportistas_interes }}</p>
+          <p class="text-gree-300 text-lg font-bold">{{ patrocinador.deportistas_interes }}</p>
+          <p class="text-gray-200 mt-2">{{ patrocinador.descripcion }}</p>
         </div>
       </div>
     </main>

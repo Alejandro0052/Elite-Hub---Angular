@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
+
 @Component({
     standalone: true,
     selector: 'app-patrocinador',
@@ -23,7 +24,6 @@ export class PatrocinadoresComponent implements OnInit {
   obtenerPatrocinadores(): void {
     this.http.get('http://127.0.0.1:8000/api/patrocinadores/').subscribe(
       (data: any) => {
-        // Transformar los datos aquí para usar solo lo necesario
         this.patrocinadores = data.map((patrocinador: any) => ({
           nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`,
           deportistas_interes: patrocinador.deportistas_interes,
