@@ -8,7 +8,6 @@ import { HttpClientModule } from '@angular/common/http';
     standalone: true,
     selector: 'app-patrocinador',
     templateUrl: './patrocinadores.component.html',
-    styleUrls: ['./patrocinadores.component.css'],
     imports: [CommonModule, HttpClientModule], 
   })
   
@@ -26,7 +25,7 @@ export class PatrocinadoresComponent implements OnInit {
       (data: any) => {
         console.log('Datos recibidos del backend:', data);
         this.patrocinadores = data.map((patrocinador: any) => ({
-          imagen_de_perfil: `http://127.0.0.1:8000${patrocinador.imagen_de_perfil}`, // Construcción completa de la URL
+          imagen_de_perfil: `http://127.0.0.1:8000${patrocinador.imagen_de_perfil}`, 
           nombreCompleto: `${patrocinador.usuario.first_name} ${patrocinador.usuario.last_name}`,
           deportistas_interes: patrocinador.deportistas_interes,
           descripcion: patrocinador.descripcion,
