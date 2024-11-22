@@ -7,6 +7,7 @@ import { PoliticasPrivacidadComponent } from './components/politicas-privacidad/
 import { TerminosCondicionesComponent } from './components/terminos-condiciones/terminos-condiciones.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
 import { DeportistasComponent } from './components/deportistas/deportistas.component';
+
 import { PatrocinadoresComponent } from './components/patrocinadores/patrocinadores.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { NutricionistasComponent } from './components/nutricionistas/nutricionistas.component';
