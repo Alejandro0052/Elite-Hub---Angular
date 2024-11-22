@@ -8,6 +8,8 @@ import { TerminosCondicionesComponent } from './components/terminos-condiciones/
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
 import { DeportistasComponent } from './components/deportistas/deportistas.component';
 import { PatrocinadoresComponent } from './components/patrocinadores/patrocinadores.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
+import { NutricionistasComponent } from './components/nutricionistas/nutricionistas.component';
 
 
 export const routes: Routes = [
@@ -19,6 +21,9 @@ export const routes: Routes = [
 	{ path: 'terminos_condiciones', component: TerminosCondicionesComponent },
 	{ path: 'contactenos', component: ContactenosComponent },
 	{ path: 'deportistas', component: DeportistasComponent },	
-	{ path: 'patrocinadores', component: PatrocinadoresComponent},
+	{ path: 'patrocinadores', component: PatrocinadoresComponent },
+	{ path: 'marcas', component: MarcasComponent },
+	{ path: 'nutricionistas', component: NutricionistasComponent },
+	
 	{ path: '**', redirectTo: 'home' }, 
 ];
