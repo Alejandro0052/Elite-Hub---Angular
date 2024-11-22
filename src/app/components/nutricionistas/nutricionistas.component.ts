@@ -26,7 +26,7 @@ export class NutricionistasComponent implements OnInit {
         this.nutricionistas = data.map((nutricionista: any) => ({
           imagen_de_perfil: `http://127.0.0.1:8000${nutricionista.imagen_de_perfil}`, 
           nombreCompleto: `${nutricionista.usuario.first_name} ${nutricionista.usuario.last_name}`,
-          descripcion: nutricionista.descripcion,
+          descripcion: nutricionista.especialidad,
         }));
       },
       (error) => {
