@@ -16,7 +16,6 @@ export class AppComponent {
 	constructor(private router: Router) {}
 
 	ngAfterViewInit(): void {
-		// Escuchar eventos de navegación y ejecutar initFlowbite en cada cambio de ruta
 		this.router.events.subscribe((event) => {
 			if (event instanceof NavigationEnd) {
 				initFlowbite();
