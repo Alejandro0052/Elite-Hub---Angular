@@ -7,24 +7,23 @@ import { PoliticasPrivacidadComponent } from './components/politicas-privacidad/
 import { TerminosCondicionesComponent } from './components/terminos-condiciones/terminos-condiciones.component';
 import { ContactenosComponent } from './components/contactenos/contactenos.component';
 import { DeportistasComponent } from './components/deportistas/deportistas.component';
-
 import { PatrocinadoresComponent } from './components/patrocinadores/patrocinadores.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { NutricionistasComponent } from './components/nutricionistas/nutricionistas.component';
+import { AuthGuard } from './guards/auth.guard'; // Importa el guard
 
-
+															
 export const routes: Routes = [
-	{ path: 'home', component: HomeComponent },
-	{ path: 'login', component: LoginComponent },
-	{ path: 'register', component: RegisterComponent },
-	{ path: 'quienes_somos', component: QuienesSomosComponent },
-	{ path: 'politicas_privacidad', component: PoliticasPrivacidadComponent },
-	{ path: 'terminos_condiciones', component: TerminosCondicionesComponent },
-	{ path: 'contactenos', component: ContactenosComponent },
-	{ path: 'deportistas', component: DeportistasComponent },	
-	{ path: 'patrocinadores', component: PatrocinadoresComponent },
-	{ path: 'marcas', component: MarcasComponent },
-	{ path: 'nutricionistas', component: NutricionistasComponent },
-	
-	{ path: '**', redirectTo: 'home' }, 
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Protegida por el guard
+  { path: 'login', component: LoginComponent }, // No protegida
+  { path: 'register', component: RegisterComponent },
+  { path: 'quienes_somos', component: QuienesSomosComponent, canActivate: [AuthGuard] },
+  { path: 'politicas_privacidad', component: PoliticasPrivacidadComponent, canActivate: [AuthGuard] },
+  { path: 'terminos_condiciones', component: TerminosCondicionesComponent, canActivate: [AuthGuard] },
+  { path: 'contactenos', component: ContactenosComponent, canActivate: [AuthGuard] },
+  { path: 'deportistas', component: DeportistasComponent, canActivate: [AuthGuard] },
+  { path: 'patrocinadores', component: PatrocinadoresComponent, canActivate: [AuthGuard] },
+  { path: 'marcas', component: MarcasComponent, canActivate: [AuthGuard] },
+  { path: 'nutricionistas', component: NutricionistasComponent, canActivate: [AuthGuard] },
+  { path: '**', redirectTo: 'home' }, 
 ];
