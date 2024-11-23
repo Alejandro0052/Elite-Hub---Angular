@@ -27,6 +27,7 @@ export class MarcasComponent implements OnInit {
           imagen_de_perfil: `http://127.0.0.1:8000${marca.imagen_de_perfil}`, 
           nombreCompleto: `${marca.usuario.first_name} ${marca.usuario.last_name}`,
           descripcion: marca.descripcion,
+          razon_social: marca.razon_social,
         }));
       },
       (error) => {
