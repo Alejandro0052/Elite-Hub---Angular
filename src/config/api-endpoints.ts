@@ -1,6 +1,6 @@
 export const API_ENDPOINTS = {
 	AUTH: {
-		LOGIN_NUTRICIONISTAS: '/login',
+		LOGIN: '/api/login/',
 		REGISTER_USER: '/api/deportistas/create/',
 		REGISTER_NUTRICIONISTAS: '/api/nutricionistas/create/',
 		REGISTER_PATROCINADORES: '/api/patrocinadores/create/',

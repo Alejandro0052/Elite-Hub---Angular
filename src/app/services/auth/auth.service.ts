@@ -12,16 +12,18 @@ export class AuthService {
 	constructor() {}
 
 	// Método para el login
-	async login(email: string, password: string): Promise<any> {
-		const body = { email, password };
+	async login(username: string, password: string): Promise<any> {
+		const body = { username, password };
 		try {
 			const response = await axios.post(
-				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_NUTRICIONISTAS}`,
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.LOGIN}`,
 				body,
 			);
 			console.log(response);
-			if (response.data.token) {
-				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
+			if (response.data) {
+				localStorage.setItem('access_token', response.data.access);
+				localStorage.setItem('refresh_token', response.data.refresh);
+				localStorage.setItem('username', response.data.username);
 			}
 			return response.data;
 		} catch (error) {
@@ -94,11 +96,10 @@ export class AuthService {
 			throw error;
 		}
 	}
-	
 
 	// Método para obtener el token
 	getToken(): string | null {
-		return localStorage.getItem('authToken');
+		return localStorage.getItem('refresh_token');
 	}
 
 	// Método para verificar si el usuario está autenticado
@@ -108,6 +109,8 @@ export class AuthService {
 
 	// Método para cerrar sesión
 	logout(): void {
-		localStorage.removeItem('authToken');
+		localStorage.removeItem('access_token');
+		localStorage.removeItem('refresh_token');
+		localStorage.removeItem('username');
 	}
 }
