@@ -10,12 +10,12 @@ import { DeportistasComponent } from './components/deportistas/deportistas.compo
 import { PatrocinadoresComponent } from './components/patrocinadores/patrocinadores.component';
 import { MarcasComponent } from './components/marcas/marcas.component';
 import { NutricionistasComponent } from './components/nutricionistas/nutricionistas.component';
-import { AuthGuard } from './guards/auth.guard'; // Importa el guard
+import { AuthGuard } from './guards/auth.guard'; 
 
 															
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, // Protegida por el guard
-  { path: 'login', component: LoginComponent }, // No protegida
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] }, 
+  { path: 'login', component: LoginComponent }, 
   { path: 'register', component: RegisterComponent },
   { path: 'quienes_somos', component: QuienesSomosComponent, canActivate: [AuthGuard] },
   { path: 'politicas_privacidad', component: PoliticasPrivacidadComponent, canActivate: [AuthGuard] },
