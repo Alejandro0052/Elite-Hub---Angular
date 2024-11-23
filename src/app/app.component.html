@@ -1,11 +1,20 @@
 <div class="flex flex-col min-h-screen">
   <!-- Header -->
-  <app-header></app-header>
+  <app-header>
+    <nav>
+      <a routerLink="/patrocinadores">Patrocinadores</a>
+      <a routerLink="/deportistas">Deportistas</a>
+      <a routerLink="/marcas">Marcas</a>
+      <a routerLink="/nutricionistas">Nutricionistas</a>
+    </nav>
+  </app-header>
 
   <!-- Main content -->
   <div class="py-5 flex-grow">
     <router-outlet></router-outlet>
   </div>
+
+ 
 
   <!-- Footer -->
   <app-footer></app-footer>

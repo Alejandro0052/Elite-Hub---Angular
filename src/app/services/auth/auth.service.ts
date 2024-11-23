@@ -31,6 +31,22 @@ export class AuthService {
 	}
 
 	// Método para el registro
+	async registerUser(form: any): Promise<any> {
+		try {
+			const response = await axios.post(
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_USER}`,
+				form,
+			);
+			if (response.data.token) {
+				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
+			}
+			return response.data;
+		} catch (error) {
+			console.error('Error en registro:', error);
+			throw error;
+		}
+	}
+
 	async registerNutricionista(form: any): Promise<any> {
 		try {
 			const response = await axios.post(
@@ -46,6 +62,39 @@ export class AuthService {
 			throw error;
 		}
 	}
+
+	async registerPatrocinador(form: any): Promise<any> {
+		try {
+			const response = await axios.post(
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_PATROCINADORES}`,
+				form,
+			);
+			if (response.data.token) {
+				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
+			}
+			return response.data;
+		} catch (error) {
+			console.error('Error en registro:', error);
+			throw error;
+		}
+	}
+
+	async registerMarcas(form: any): Promise<any> {
+		try {
+			const response = await axios.post(
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.REGISTER_MARCAS}`,
+				form,
+			);
+			if (response.data.token) {
+				localStorage.setItem('authToken', response.data.token); // Guarda el token en el localStorage
+			}
+			return response.data;
+		} catch (error) {
+			console.error('Error en registro:', error);
+			throw error;
+		}
+	}
+	
 
 	// Método para obtener el token
 	getToken(): string | null {
