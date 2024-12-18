@@ -14,7 +14,7 @@ import { NutricionistasComponent } from './components/nutricionistas/nutricionis
   ],
   imports: [
     BrowserModule,
-      RouterModule.forRoot(routes), // Conecta las rutas
+      RouterModule.forRoot(routes), 
       AppComponent,
       HomeComponent,
       MarcasComponent,

@@ -11,7 +11,6 @@ export class AuthService {
 
 	constructor() {}
 
-	// Método para el login
 	async login(username: string, password: string): Promise<any> {
 		const body = { username, password };
 		try {

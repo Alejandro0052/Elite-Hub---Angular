@@ -25,7 +25,7 @@ export class LoginComponent {
 				.login(formulario.value.username, formulario.value.password)
 				.then((response) => {
 					this.showToast('Bienvenido, ' + formulario.value.username);
-					this.router.navigate(['/']).then(() => {
+					this.router.navigate(['/home']).then(() => {
 						window.location.reload();
 					});
 				})
@@ -43,25 +43,25 @@ export class LoginComponent {
 		}
 	}
 
-	// Función para mostrar el toast
+
 	showToast(message: string, type: 'success' | 'error' = 'success'): void {
 		const toastElement = document.createElement('div');
 
-		// Establecer la clase base y el color de fondo según el tipo
+		
 		toastElement.className =
 			'fixed bottom-4 right-4 text-white p-4 rounded-lg shadow-md';
 
 		if (type === 'error') {
-			toastElement.classList.add('bg-red-500'); // Color de fondo para errores
+			toastElement.classList.add('bg-red-500'); 
 		} else {
-			toastElement.classList.add('bg-green-500'); // Color de fondo para éxito
+			toastElement.classList.add('bg-green-500'); 
 		}
 
 		toastElement.innerText = message;
 
 		document.body.appendChild(toastElement);
 
-		// Eliminar el toast después de 3 segundos
+		
 		setTimeout(() => {
 			toastElement.remove();
 		}, 3000);
