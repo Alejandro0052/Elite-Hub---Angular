@@ -25,5 +25,5 @@ export const routes: Routes = [
   { path: 'patrocinadores', component: PatrocinadoresComponent, canActivate: [AuthGuard] },
   { path: 'marcas', component: MarcasComponent, canActivate: [AuthGuard] },
   { path: 'nutricionistas', component: NutricionistasComponent, canActivate: [AuthGuard] },
-  { path: '**', redirectTo: 'home' }, 
+  { path: '**', redirectTo: 'login' }, 
 ];
