@@ -8,6 +8,7 @@ import { API_ENDPOINTS } from '../../../config/api-endpoints';
 })
 export class AuthService {
 	private apiUrl = environment.apiUrl;
+	//private apiUrl = 'http://127.0.0.1:8000/api/register/';
 
 	constructor() {}
 
