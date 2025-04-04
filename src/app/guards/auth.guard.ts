@@ -12,7 +12,10 @@ export class AuthGuard implements CanActivate {
     const isAuthenticated = !!localStorage.getItem('access_token'); // Simula autenticación básica
     if (!isAuthenticated) {
       this.router.navigate(['/login']); // Redirige si no está autenticado
+      return false;
+
     }
     return isAuthenticated;
+    
   }
 }
