@@ -9,7 +9,8 @@ export class AuthGuard implements CanActivate {
   constructor(private router: Router) {}
 
   canActivate(): boolean {
-    const isAuthenticated = !!localStorage.getItem('access_token'); // Simula autenticación básica
+    const isAuthenticated = !!localStorage.getItem('access_token');
+    console.log(isAuthenticated);
     if (!isAuthenticated) {
       this.router.navigate(['/login']); // Redirige si no está autenticado
       return false;
