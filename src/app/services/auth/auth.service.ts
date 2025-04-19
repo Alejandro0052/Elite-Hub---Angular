@@ -8,12 +8,13 @@ import { API_ENDPOINTS } from '../../../config/api-endpoints';
 })
 export class AuthService {
 	private apiUrl = environment.apiUrl;
+	//private apiUrl = 'http://127.0.0.1:8000/api/register/';
 
 	constructor() {}
 
 	// Método para el login
-	async login(username: string, password: string): Promise<any> {
-		const body = { username, password };
+	async login(email: string, password: string): Promise<any> {
+		const body = { email, password };
 		try {
 			const response = await axios.post(
 				`${this.apiUrl}${API_ENDPOINTS.AUTH.LOGIN}`,
