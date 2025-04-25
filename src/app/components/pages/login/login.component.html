@@ -1,0 +1,129 @@
+<div class="mx-auto h-full max-w-screen-lg p-6">
+	<div class="flex overflow-hidden rounded-xl shadow-xl">
+		<div class="w-1/3">
+			<img class="h-full object-cover" src="Jugador.jpeg" alt="" />
+		</div>
+		<div class="block w-2/3 bg-black px-4 py-8">
+			<h2 class="text-center text-4xl font-bold text-white">Elite Hub</h2>
+			<div class="pt-4">
+				<p class="text-center text-white">Inicia sesión</p>
+				<form
+					class="mx-auto max-w-md px-4"
+					[formGroup]="loginForm"
+					(ngSubmit)="login()">
+					<div class="mb-5">
+						<label
+							for="username"
+							class="mb-2 block text-sm font-medium text-white"
+							>Usuario:</label
+						>
+						<input
+							type="text"
+							id="username"
+							formControlName="username"
+							class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-accent focus:ring-accent"
+							placeholder=""
+							required />
+						@if (
+							loginForm.controls["username"].errors?.[
+								"required"
+							] &&
+							(loginForm.controls["username"].dirty ||
+								loginForm.controls["username"].touched)
+						) {
+							<div class="text-xs text-red-500">
+								El campo es requerido.
+							</div>
+						} @else if (
+							loginForm.controls["username"].errors?.[
+								"minlength"
+							] &&
+							(loginForm.controls["username"].dirty ||
+								loginForm.controls["username"].touched)
+						) {
+							<div class="text-xs text-red-500">
+								El campo debe tener mínimo 3 caracteres.
+							</div>
+						}
+					</div>
+					<div class="mb-5">
+						<label
+							for="password"
+							class="mb-2 block text-sm font-medium text-white"
+							>Contraseña:</label
+						>
+						<input
+							type="password"
+							id="password"
+							formControlName="password"
+							class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-accent focus:ring-accent"
+							required />
+						@if (
+							loginForm.controls["password"].errors?.[
+								"required"
+							] &&
+							(loginForm.controls["password"].dirty ||
+								loginForm.controls["password"].touched)
+						) {
+							<div class="text-xs text-red-500">
+								El campo es requerido.
+							</div>
+						} @else if (
+							loginForm.controls["password"].errors?.[
+								"minlength"
+							] &&
+							(loginForm.controls["password"].dirty ||
+								loginForm.controls["password"].touched)
+						) {
+							<div class="text-xs text-red-500">
+								El campo debe tener mínimo 3 caracteres.
+							</div>
+						}
+					</div>
+					<div class="mb-5 flex items-start">
+						<div class="flex h-5 items-center">
+							<input
+								id="remember"
+								type="checkbox"
+								value=""
+								class="h-4 w-4 rounded border border-gray-300 bg-gray-50 checked:bg-accent focus:outline-none focus:ring-0" />
+						</div>
+						<label
+							for="remember"
+							class="ms-2 text-sm font-medium text-gray-300"
+							>Recuérdame</label
+						>
+					</div>
+					<button
+						type="submit"
+						[disabled]="isLoading"
+						class="block w-full rounded-lg bg-accent px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-accent/80 focus:outline-none focus:ring-2 focus:ring-white">
+						@if (!isLoading) {
+							<span> Iniciar sesión </span>
+						} @else {
+							<div class="flex items-center justify-center gap-4">
+								<i
+									class="fa-solid fa-arrow-rotate-right animate-spin"></i>
+								<span>Iniciando sesión...</span>
+							</div>
+						}
+					</button>
+				</form>
+				<a
+					routerLink="#"
+					class="block py-4 text-center text-sm font-medium text-white hover:underline"
+					>Recuperar contraseña</a
+				>
+				<span
+					class="block py-4 text-center text-sm font-medium text-white"
+					>¿No tienes una cuenta?
+					<a
+						routerLink="/register"
+						class="text-accent hover:underline"
+						>Regístrate ahora mismo</a
+					></span
+				>
+			</div>
+		</div>
+	</div>
+</div>

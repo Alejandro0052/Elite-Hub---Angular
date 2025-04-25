@@ -1,0 +1,14 @@
+<div
+	class="relative flex flex-col items-center justify-center gap-4 rounded-2xl bg-white p-6">
+	<div class="flex items-center justify-end text-6xl font-semibold">
+		<h3 [countUp]="endValue">{{ startValue }}</h3>
+		<span>+</span>
+	</div>
+	<span class="text text-gray-600">{{ text }}</span>
+	@if (faIcon) {
+		<div
+			class="absolute right-1 top-1 flex items-center justify-center rounded-full bg-black p-2">
+			<i class="{{ faIcon }} text-xs text-white"></i>
+		</div>
+	}
+</div>

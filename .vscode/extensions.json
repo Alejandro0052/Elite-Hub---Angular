@@ -3,14 +3,9 @@
 	"recommendations": [
 		"angular.ng-template",
 		"bradlc.vscode-tailwindcss",
-		"coenraads.bracket-pair-colorizer",
 		"christian-kohler.path-intellisense",
-		"streetsidesoftware.code-spell-checker",
-		"donjayamanne.githistory",
 		"esbenp.prettier-vscode",
-		"pkief.material-icon-theme",
 		"eamodio.gitlens",
-		"streetsidesoftware.code-spell-checker-spanish",
 		"formulahendry.auto-close-tag",
 		"formulahendry.auto-rename-tag"
 	]

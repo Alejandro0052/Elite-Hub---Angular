@@ -1,107 +1,120 @@
-<nav class="border-white bg-black shadow-xl">
+<nav class="border-white bg-black p-6 shadow-xl">
 	<div
-		class="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-4">
+		class="mx-auto flex max-w-[100rem] flex-wrap items-center justify-between bg-transparent">
 		<a
-			href="#"
+			routerLink="/"
 			class="flex items-center space-x-3 transition duration-300 hover:scale-110 rtl:space-x-reverse">
-			<img src="" class="h-8" alt="Elite Hub Logo" />
-			<span
-				class="self-center whitespace-nowrap text-2xl font-semibold text-white"
-				>Elite Hub</span
-			>
+			<img src="../logo.jpeg" class="h-12" alt="Elite Hub Logo" />
 		</a>
-		<button
-			data-collapse-toggle="navbar-dropdown"
-			type="button"
-			class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
-			aria-controls="navbar-dropdown"
-			aria-expanded="false">
-			<span class="sr-only">Open main menu</span>
-			<svg
-				class="h-5 w-5"
-				aria-hidden="true"
-				xmlns="http://www.w3.org/2000/svg"
-				fill="none"
-				viewBox="0 0 17 14">
-				<path
-					stroke="currentColor"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M1 1h15M1 7h15M1 13h15" />
-			</svg>
-		</button>
-		<div class="hidden w-full md:block md:w-auto" id="navbar-dropdown">
-			<ul
-				class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium text-gray-200 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse">
-				<li>
-					<a
-						href="#"
-						class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary dark:bg-blue-600 md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white md:dark:text-blue-500"
-						aria-current="page"
-						>Inicio</a
-					>
-				</li>
-				<li>
-					<a
-						routerLink="/login"
-						class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary dark:bg-blue-600 md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white md:dark:text-blue-500"
-						aria-current="page"
-						>Iniciar sesión</a
-					>
-				</li>
-				<li>
+		<div class="flex items-center justify-center">
+			@if (isAuthenticated) {
+				<div class="relative inline-block">
 					<button
-						id="dropdownNavbarLink"
-						data-dropdown-toggle="dropdownNavbar"
-						class="flex w-full items-center justify-between rounded px-3 py-2 transition duration-300 hover:bg-secondary md:w-auto md:border-0 md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white">
-						Alejandro Bravo
-						<svg
-							class="ms-2.5 h-2.5 w-2.5"
-							aria-hidden="true"
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 10 6">
-							<path
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="2"
-								d="m1 1 4 4 4-4" />
-						</svg>
+						id="dropdownUser"
+						class="flex w-full items-center justify-between rounded px-3 py-2 text-white transition duration-300 hover:bg-secondary md:w-auto md:border-0 md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white"
+						(click)="toggleDropdownUser()">
+						{{ username }}
+						<i class="fa-solid fa-angle-down"></i>
 					</button>
 					<!-- Dropdown menu -->
-					<div
-						id="dropdownNavbar"
-						class="z-10 hidden w-44 divide-y divide-gray-100 rounded-lg bg-white font-normal shadow-xl dark:divide-gray-600 dark:bg-gray-700">
-						<ul
-							class="py-2 text-sm text-gray-700 dark:text-gray-400"
-							aria-labelledby="dropdownLargeButton">
-							<li>
-								<a
-									href="#"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-									>Perfil</a
-								>
-							</li>
-							<li>
-								<a
-									href="#"
-									class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-									>Ajustes</a
-								>
-							</li>
-						</ul>
-						<div class="py-1">
-							<a
-								href="#"
-								class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
-								>Cerrar sesión</a
-							>
+					@if (userDropdownVisible) {
+						<div
+							class="absolute right-0 z-10 mt-2 w-44 divide-y divide-gray-200 overflow-hidden rounded-lg bg-white font-normal shadow-xl dark:divide-gray-600 dark:bg-gray-700"
+							style="min-width: max-content">
+							<ul
+								class="px-2 py-2 text-sm text-gray-700"
+								aria-labelledby="dropdownLargeButton">
+								<li>
+									<a
+										href="#"
+										class="block w-full rounded px-4 py-2 hover:bg-gray-300"
+										(click)="closeDropdownUser()">
+										<i class="fa-solid fa-user"></i>
+										Perfil
+									</a>
+								</li>
+								<li>
+									<a
+										href="#"
+										class="block w-full rounded px-4 py-2 font-semibold hover:bg-gray-300"
+										(click)="closeDropdownUser()">
+										<i class="fa-solid fa-gear"></i>
+										Ajustes
+									</a>
+								</li>
+							</ul>
+							<div class="px-2 py-2">
+								<button
+									(click)="logout(); closeDropdownUser()"
+									class="flex w-full items-center gap-2 rounded px-4 py-2 text-left text-sm font-semibold text-gray-700 hover:bg-red-500 hover:text-white">
+									<i class="fas fa-sign-out-alt"></i>
+									Cerrar sesión
+								</button>
+							</div>
 						</div>
+					}
+				</div>
+			} @else {
+				<a
+					routerLink="/login"
+					class="block rounded bg-transparent px-3 py-2 text-white transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white"
+					>Iniciar sesión</a
+				>
+			}
+			<div class="relative inline-block">
+				<button
+					type="button"
+					(click)="toggleDropdownNavbar()"
+					class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden">
+					<span class="sr-only">Abrir el menu</span>
+					<i class="fa-solid fa-bars"></i>
+				</button>
+				@if (navbarDropdownVisible) {
+					<div class="w-full md:block md:w-auto">
+						<ul
+							class="mt-4 flex flex-col rounded-lg border border-gray-100 p-4 font-medium text-gray-200 md:mt-0 md:flex-row md:space-x-8 md:border-0 md:p-0 rtl:space-x-reverse">
+							@if (isAuthenticated) {
+								<li>
+									<a
+										routerLink="/"
+										class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white"
+										aria-current="page"
+										>Inicio</a
+									>
+								</li>
+								<li>
+									<a
+										routerLink="/patrocinadores"
+										class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white">
+										Patrocinadores
+									</a>
+								</li>
+								<li>
+									<a
+										routerLink="/deportistas"
+										class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white">
+										Deportistas
+									</a>
+								</li>
+								<li>
+									<a
+										routerLink="/marcas"
+										class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white">
+										Marcas
+									</a>
+								</li>
+								<li>
+									<a
+										routerLink="/nutricionistas"
+										class="block rounded bg-transparent px-3 py-2 transition duration-300 hover:bg-secondary md:p-0 md:hover:scale-110 md:hover:bg-transparent md:hover:text-white">
+										Nutricionistas
+									</a>
+								</li>
+							}
+						</ul>
 					</div>
-				</li>
-			</ul>
+				}
+			</div>
 		</div>
 	</div>
 </nav>

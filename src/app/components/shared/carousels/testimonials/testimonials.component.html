@@ -1,0 +1,54 @@
+<div
+	class="flex h-[60vh] gap-4"
+	(mouseenter)="onMouseEnter()"
+	(mouseleave)="onMouseLeave()">
+	<div class="h-full w-2/5 overflow-hidden rounded-xl">
+		<img
+			[src]="items[currentIndex].image"
+			alt="Imagen del carrusel"
+			class="h-full object-cover transition-opacity duration-500 ease-in-out"
+			[ngClass]="{
+				'opacity-0': isFading,
+				'opacity-100': !isFading,
+			}" />
+	</div>
+	<div
+		class="flex w-3/5 flex-col overflow-hidden rounded-xl bg-white px-12 py-8 transition-opacity duration-500 ease-in-out">
+		<p
+			class="carousel-text flex-grow text-balance p-4 text-4xl font-semibold italic"
+			[ngClass]="{ 'opacity-0': isFading, 'opacity-100': !isFading }">
+			{{ items[currentIndex].text }}
+		</p>
+		<div class="flex items-center justify-between gap-20">
+			<div class="flex flex-grow justify-between gap-2">
+				@for (item of items; track $index) {
+					<span
+						(click)="currentIndex = $index"
+						class="h-2 w-full cursor-pointer rounded-full transition-all duration-200"
+						[ngClass]="
+							currentIndex === $index
+								? 'bg-primary'
+								: 'bg-gray-300'
+						">
+					</span>
+				}
+			</div>
+			<div class="flex gap-4">
+				<button
+					(click)="prev()"
+					aria-label="Anterior"
+					class="group flex items-center justify-center rounded-full bg-gray-300 px-8 py-4 hover:bg-black">
+					<i
+						class="fa-solid fa-chevron-left text-2xl group-hover:text-white"></i>
+				</button>
+				<button
+					(click)="next()"
+					aria-label="Siguiente"
+					class="group flex items-center justify-center rounded-full bg-gray-300 px-8 py-4 hover:bg-black">
+					<i
+						class="fa-solid fa-chevron-right text-2xl group-hover:text-white"></i>
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
