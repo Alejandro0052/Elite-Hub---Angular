@@ -31,7 +31,7 @@ export class MarcasComponent implements OnInit {
         }));
       },
       (error) => {
-        console.error('Error al obtener los patrocinadores:', error);
+        console.error('Error al obtener las maracas:', error);
       }
     );
   }
