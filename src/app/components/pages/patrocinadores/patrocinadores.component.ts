@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 
 @Component({
     standalone: true,
     selector: 'app-patrocinador',
     templateUrl: './patrocinadores.component.html',
-    imports: [CommonModule, HttpClientModule], 
+    imports: [CommonModule, HttpClientModule,RouterLink], 
   })
   
 export class PatrocinadoresComponent implements OnInit {

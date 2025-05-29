@@ -19,7 +19,7 @@ export class AuthService {
 		const body = { username, password };
 		try {
 			const response = await axios.post(
-				`${this.apiUrl}${API_ENDPOINTS.AUTH.LOGIN}`, // Todos los endpoints deben estar en config/api-endpoints.ts
+				`${this.apiUrl}${API_ENDPOINTS.AUTH.LOGIN}`, 
 				body,
 			);
 			if (response.data) {
