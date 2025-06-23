@@ -3,12 +3,11 @@
 	<div class="flex flex-col gap-6 lg:h-[500px] lg:flex-row xl:h-[700px]">
 		<div
 			class="relative flex h-full min-h-[250px] w-full flex-1 overflow-hidden rounded-2xl lg:min-h-[350px] lg:w-2/3 xl:min-h-[400px]">
-			<!-- muted es para quitar el sonido al video -->
 			<video
 				class="h-full min-h-[250px] w-full object-cover md:min-h-[350px] xl:min-h-[400px]"
 				autoplay
 				loop
-				
+				muted
 				src="videoplayback.webm"></video>
 			<div class="absolute inset-0 bg-black/40"></div>
 			<div class="absolute inset-8 flex items-end">
@@ -38,6 +37,7 @@
 						class="group flex items-center justify-between rounded-xl border border-black p-6 transition-all duration-300 hover:bg-black">
 						<div>
 							<h2
+								id="athletes"
 								class="text-xl font-semibold group-hover:text-white">
 								Deportistas
 							</h2>
@@ -58,6 +58,7 @@
 						class="group flex items-center justify-between rounded-xl border border-black p-6 transition-all duration-300 hover:bg-black">
 						<div>
 							<h2
+								id="sponsors"
 								class="text-xl font-semibold group-hover:text-white">
 								Patrocinadores
 							</h2>
@@ -78,6 +79,7 @@
 						class="group flex items-center justify-between rounded-xl border border-black p-6 transition-all duration-300 hover:bg-black">
 						<div>
 							<h2
+								id="brands"
 								class="text-xl font-semibold group-hover:text-white">
 								Marcas
 							</h2>
