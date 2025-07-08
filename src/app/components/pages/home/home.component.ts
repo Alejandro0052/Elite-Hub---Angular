@@ -4,11 +4,14 @@ import { NewsComponent } from '../../shared/cards/news/news.component';
 import { StatsComponent } from '../../shared/cards/stats/stats.component';
 import { EventsComponent } from '../../shared/cards/events/events.component';
 import { TestimonialsComponent } from 'app/components/shared/carousels/testimonials/testimonials.component';
+import { TestimonialsService } from 'app/services/testimonials/testimonial.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
 	standalone: true,
 	selector: 'app-home',
 	imports: [
+		HttpClientModule, 
 		RouterLink,
 		NewsComponent,
 		StatsComponent,
@@ -18,22 +21,16 @@ import { TestimonialsComponent } from 'app/components/shared/carousels/testimoni
 	templateUrl: './home.component.html',
 })
 export class HomeComponent {
-	carouselTestimonials: { image: string; text: string }[] = [
-		{
-			image: 'logo.jpeg',
-			text: 'lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat',
-		},
-		{
-			image: 'alliance.jpg',
-			text: '2',
-		},
-		{
-			image: 'logo.jpeg',
-			text: '3',
-		},
-		{
-			image: 'alliance.jpg',
-			text: '4',
-		},
-	];
+	carouselTestimonials: { image: string; text: string }[] = [];
+
+	constructor(private testimonialsService: TestimonialsService) {}
+
+	async ngOnInit() {
+		try {
+			this.carouselTestimonials = await this.testimonialsService.getTestimonials();
+		} catch (error) {
+			console.error('Error cargando testimonios:', error);
+		}
+	}
 }
+

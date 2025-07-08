@@ -1,10 +1,11 @@
 import { NgClass } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, Input } from '@angular/core';
 
 @Component({
 	selector: 'app-testimonials',
 	standalone: true,
-	imports: [NgClass],
+	imports: [NgClass,HttpClientModule],
 	templateUrl: './testimonials.component.html',
 })
 export class TestimonialsComponent {
