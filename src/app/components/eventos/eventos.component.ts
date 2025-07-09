@@ -6,15 +6,33 @@ import { EventosService } from 'app/services/eventos/eventos.service';
   selector: 'app-events',
   standalone: true,
   imports: [NgForOf, NgIf,CommonModule],
-  templateUrl: './events.component.html',
+  templateUrl: './eventos.component.html',
 })
-export class EventsComponent {
+export class EventosComponent {
   @Input({ required: true }) items: {
     image: string;
     title: string;
     description: string;
     date: string;
   }[] = [];
+
+  eventos: {
+    image: string;
+    title: string;
+    description: string;
+    date: string;
+  }[] = [];
+
+  constructor(private eventosService: EventosService) {}
+
+  async ngOnInit() {
+    try {
+      this.eventos = await this.eventosService.getEventos();
+    } catch (error) {
+      console.error('Error cargando eventos:', error);
+    }
+  }
+
 
 }
 

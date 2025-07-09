@@ -11,6 +11,8 @@ import { PatrocinadoresComponent } from './components/pages/patrocinadores/patro
 import { MarcasComponent } from './components/pages/marcas/marcas.component';
 import { NutricionistasComponent } from './components/pages/nutricionistas/nutricionistas.component';
 import { AuthGuard } from './guards/auth.guard';
+import { EventsComponent } from './components/shared/cards/events/events.component';
+import { EventosComponent } from './components/eventos/eventos.component';
 
 export const routes: Routes = [
 	{ path: '', component: HomeComponent },
@@ -42,7 +44,15 @@ export const routes: Routes = [
 		component: PatrocinadoresComponent,
 		canActivate: [AuthGuard],
 	},
-	{ path: 'marcas', component: MarcasComponent, canActivate: [AuthGuard] },
+	{   path: 'marcas',
+		component: MarcasComponent, 
+		canActivate: [AuthGuard] 
+	},
+	{
+		path: 'eventos',
+		component: EventosComponent,
+		canActivate: [AuthGuard]
+	},
 	{
 		path: 'nutricionistas',
 		component: NutricionistasComponent,
