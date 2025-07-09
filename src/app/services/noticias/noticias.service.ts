@@ -3,30 +3,32 @@ import { environment } from '../../../environments/environment';
 import axios from 'axios';
 import { API_ENDPOINTS } from '../../../config/api-endpoints';
 
+
 @Injectable({
 	providedIn: 'root',
 })
-export class TestimonialsService {
+
+export class NoticiasService {
 	private apiUrl = environment.apiUrl;
 
 	constructor() {}
 
-	async getTestimonials(): Promise<any[]> {
+	async getNoticias(): Promise<any[]> {
 	try {
 		const response = await axios.get(
-			`${this.apiUrl}${API_ENDPOINTS.TESTIMONIOS.GET_ALL}`,
+			`${this.apiUrl}${API_ENDPOINTS.NOTICIAS.GET_ALL}`,
 		);
 
-		
 		return response.data.map((item: any) => ({
-			image: item.testimonio_imagen.startsWith('http')
-				? item.testimonio_imagen
-				: `${this.apiUrl}${item.testimonio_imagen}`,
-			text: item.descripcion,
-            title: item.titulo,
+			image: item.foto_noticia.startsWith('http')
+				? item.foto_noticia
+				: `${this.apiUrl}${item.foto_noticia}`,
+			// title: item.titulo,
+            // text: item.texto_noticia,
+            // date: item.fecha,
 		}));
 	} catch (error) {
-		console.error('Error al obtener testimonios:', error);
+		console.error('Error al obtener noticias:', error);
 		throw error;
 	}
   }

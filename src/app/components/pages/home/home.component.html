@@ -217,23 +217,18 @@
 		<div
 			class="flex flex-col justify-between gap-4 py-12 md:flex-row md:items-center">
 			<h2 class="text-6xl text-white">Eventos</h2>
-			<a href="#">
-				<div class="group flex items-center gap-2">
-					<i
-						class="fa-solid fa-right-long rounded-full bg-black p-4 text-white"></i>
-					<h2 class="text-2xl text-gray-400 group-hover:text-white">
-						Ver todos los eventos
-					</h2>
-				</div>
-			</a>
+					<a routerLink="/eventos">
+	   <div class="group flex items-center gap-2">
+			<i class="fa-solid fa-right-long rounded-full bg-black p-4 text-white"></i>
+			<h2 class="text-2xl text-gray-400 group-hover:text-white">
+			Ver todos los eventos
+			</h2>
 		</div>
-		<div class="grid grid-cols-1 gap-4 md:grid-cols-3">
-			<app-events
-				image="maraton.jpg"
-				title="Maraton Cali - 2025"
-				date="4 de mayo de 2025"
-				time="5:00 A.M."></app-events>
+		         </a>
 		</div>
+	
+			<app-events [items]="eventosLimitados"></app-events>
+		
 	</div>
 
 	<!-- Testimonios -->

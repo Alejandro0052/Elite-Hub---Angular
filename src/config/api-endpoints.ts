@@ -6,12 +6,17 @@ export const API_ENDPOINTS = {
 		REGISTER_PATROCINADORES: '/api/patrocinadores/create/',
 		REGISTER_MARCAS: '/api/marcas/create/',
 	},
+	NOTICIAS: {
+		GET_ALL: '/api/noticias/',
+	},
+	EVENTOS: {
+		GET_ALL: '/api/eventos/',
+	},
 	TESTIMONIOS: {
 	GET_ALL: '/api/testimonios/',
 	},
 	PARAMETROS: {
 		PARAMETROS: '/api/parametros/',
-		
 	},
 	USER: {
 		PROFILE: '/user/profile',
