@@ -1,5 +1,14 @@
 <div class="max-w-screen-lg mx-auto">
   <h1 class="text-6xl text-white font-bold pt-4 pb-10 text-center">Términos y condiciones</h1>
+   <div class="flex justify-end">
+    <a
+      id="backterminos"
+      routerLink="/"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow-md transition-transform transform hover:scale-105"
+    >
+      ⬅ Volver
+    </a>
+  </div>
   @if (terminos_condiciones) {
   <p class="text-white">{{ terminos_condiciones }}</p>
   }

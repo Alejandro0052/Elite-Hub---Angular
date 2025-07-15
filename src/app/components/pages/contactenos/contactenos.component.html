@@ -1,5 +1,14 @@
 <div class="max-w-screen-lg mx-auto">
   <h1 class="text-6xl text-white font-bold pb-10 pt-4 text-center">Contáctenos</h1>
+   <div class="flex justify-end">
+    <a
+      id="backcontactenos"
+      routerLink="/"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-xl text-lg shadow-md transition-transform transform hover:scale-105"
+    >
+      ⬅ Volver
+    </a>
+  </div>
   @if (contactenos) {
   <p class="text-white">Numero de teléfono: {{ contactenos }}</p>
   }

@@ -1,11 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { NgIf, NgForOf, CommonModule } from '@angular/common'; 
 import { EventosService } from 'app/services/eventos/eventos.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-events',
   standalone: true,
-  imports: [NgForOf, NgIf,CommonModule],
+  imports: [NgForOf, NgIf,CommonModule, RouterLink],
   templateUrl: './eventos.component.html',
 })
 export class EventosComponent {

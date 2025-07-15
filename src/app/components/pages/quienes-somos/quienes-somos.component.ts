@@ -1,10 +1,11 @@
 import { ParametrosService } from 'app/services/parametros/parametros.service';
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
 	selector: 'app-quienes-somos',
 	standalone: true,
-	imports: [],
+	imports: [RouterLink],
 	templateUrl: './quienes-somos.component.html',
 })
 export class QuienesSomosComponent {
